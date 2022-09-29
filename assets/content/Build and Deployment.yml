@@ -1,0 +1,186 @@
+Culture:
+  I see data as an important factor in the safety of my programme: 
+    type: 2
+    definition: This question considers the nature of the data, its lifecycle and how easy it is to detect errors in the data.
+    point: 0
+    level: 1
+    implementation: 
+    textInfo: This form is used to assess the safety culture related to data for a particular programme. You play a key role in protecting the organisation from data safety risks and your views are important. This self-assessment survey is designed to assess our current level of data safety culture within the programme. The output can help us to improve our safety position. Please tick the box which reflects your view and answer as honestly as possible. Space is provided for explanatory comments. Your response will only be of value if it reflects what you actually believe is the case, rather than what you believe should happen. If you would like to remain anonymous please print and send this form by post. The survey should take no longer than 10 minutes. It is anticipated that this form will be used on a regular basis (e.g. annually)
+    chapter: AppendixC
+    answersCheckContent: 
+      - {type: "Don't know"}
+      - {type: "Strongly disagree"} 
+      - {type: "Disagree"} 
+      - {type: "Maybe"} 
+      - {type: "Agree"} 
+      - {type: "Strongly Agree"}   
+  I am familiar with the safety aspects of our data.: 
+    type: 2
+    definition: 
+    point: 0
+    level: 1
+    implementation: 
+    chapter: AppendixC
+    answersCheckContent: 
+      - {type: "Don't know"}
+      - {type: "Strongly disagree"} 
+      - {type: "Disagree"} 
+      - {type: "Maybe"} 
+      - {type: "Agree"} 
+      - {type: "Strongly Agree"}   
+  I understand how data in our solution can contribute to an accident.: 
+    type: 2
+    definition: 
+    point: 0
+    level: 1
+    implementation: 
+    chapter: AppendixC
+    answersCheckContent: 
+      - {type: "Don't know"}
+      - {type: "Strongly disagree"} 
+      - {type: "Disagree"} 
+      - {type: "Maybe"} 
+      - {type: "Agree"} 
+      - {type: "Strongly Agree"}   
+  I think we could be blamed ift here were an accident due to our data.: 
+    type: 2
+    definition: 
+    point: 0
+    level: 1
+    implementation: 
+    chapter: AppendixC
+    answersCheckContent: 
+      - {type: "Don't know"}
+      - {type: "Strongly disagree"} 
+      - {type: "Disagree"} 
+      - {type: "Maybe"} 
+      - {type: "Agree"} 
+      - {type: "Strongly Agree"}   
+  I think that the programme is aware of data safety risks.: 
+    type: 2
+    definition: 
+    point: 0
+    level: 1
+    implementation: 
+    chapter: AppendixC
+    answersCheckContent: 
+      - {type: "Don't know"}
+      - {type: "Strongly disagree"} 
+      - {type: "Disagree"} 
+      - {type: "Maybe"} 
+      - {type: "Agree"} 
+      - {type: "Strongly Agree"} 
+  I believe we need to implement measures to manage data safety risks.: 
+    type: 2
+    definition: 
+    point: 0
+    level: 1
+    implementation: 
+    chapter: AppendixC
+    answersCheckContent: 
+      - {type: "Don't know"}
+      - {type: "Strongly disagree"} 
+      - {type: "Disagree"} 
+      - {type: "Maybe"} 
+      - {type: "Agree"} 
+      - {type: "Strongly Agree"} 
+  I think that the programme meets its obligations (e.g. has a Data Management Plan in place and a role with specific responsibilities in this area).: 
+    type: 2
+    definition: 
+    point: 0
+    level: 1
+    implementation: 
+    chapter: AppendixC
+    answersCheckContent: 
+      - {type: "Don't know"}
+      - {type: "Strongly disagree"} 
+      - {type: "Disagree"} 
+      - {type: "Maybe"} 
+      - {type: "Agree"} 
+      - {type: "Strongly Agree"} 
+  I know my role relates to the management of data and associated safety risks.:
+    type: 2
+    definition: 
+    point: 0
+    level: 1
+    implementation: 
+    chapter: AppendixC
+    answersCheckContent: 
+      - {type: "Don't know"}
+      - {type: "Strongly disagree"} 
+      - {type: "Disagree"} 
+      - {type: "Maybe"} 
+      - {type: "Agree"} 
+      - {type: "Strongly Agree"}     
+  If I had a safety concern about our data I would report it.:
+    type: 2
+    definition: 
+    point: 0
+    level: 1
+    implementation: 
+    chapter: AppendixC
+    answersCheckContent: 
+      - {type: "Don't know"}
+      - {type: "Strongly disagree"} 
+      - {type: "Disagree"} 
+      - {type: "Maybe"} 
+      - {type: "Agree"} 
+      - {type: "Strongly Agree"} 
+  I know who the data safety representative is on my programme.:
+    type: 2
+    definition: 
+    point: 0
+    level: 1
+    implementation: 
+    chapter: AppendixC
+    answersCheckContent: 
+      - {type: "Don't know"}
+      - {type: "Strongly disagree"} 
+      - {type: "Disagree"} 
+      - {type: "Maybe"} 
+      - {type: "Agree"} 
+      - {type: "Strongly Agree"} 
+  I have received adequate training regarding data safety for my role.:
+    type: 2
+    definition: 
+    point: 0
+    level: 1
+    implementation: 
+    chapter: AppendixC
+    answersCheckContent: 
+      - {type: "Don't know"}
+      - {type: "Strongly disagree"} 
+      - {type: "Disagree"} 
+      - {type: "Maybe"} 
+      - {type: "Agree"} 
+      - {type: "Strongly Agree"} 
+
+  I feel supported in dealing with data safety risks.:
+    type: 2
+    definition: 
+    point: 0
+    level: 1
+    implementation: 
+    chapter: AppendixC
+    answersCheckContent: 
+      - {type: "Don't know"}
+      - {type: "Strongly disagree"} 
+      - {type: "Disagree"} 
+      - {type: "Maybe"} 
+      - {type: "Agree"} 
+      - {type: "Strongly Agree"} 
+  I have adequate time to address any data safety issues.: 
+    type: 2
+    definition: 
+    point: 0
+    level: 1
+    implementation: 
+    chapter: AppendixC
+    answersCheckContent: 
+      - {type: "Don't know"}
+      - {type: "Strongly disagree"} 
+      - {type: "Disagree"} 
+      - {type: "Maybe"} 
+      - {type: "Agree"} 
+      - {type: "Strongly Agree"} 
+...

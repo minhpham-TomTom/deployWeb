@@ -1,0 +1,11 @@
+---
+Help:
+  Overview page:
+    The Overview page gives you insights into how much you have achieved. The first five doughnut charts show you how many activities you have completed in each subdimension from each dimension. The radar chart shows you the degree of implementation, the level of maturity achieved and number of activities completed for each dimension. Lastly, the bar chart shows you per each dimension how many activities you have completed and how many are still not completed.
+  Dimensions page:
+    "This assessment tool is split in five dimensions, each targeting a different component of the DevSecOps Maturity Model. These dimensions are: Build and Deployment, Culture and Organization, Implementation, Information Gathering, Test and Verification. Each of them is further split in different subdimensions."
+  Subdimensions page:
+    For each dimension of the DevSecOps Maturity Model you will find certain subdimensions, 
+    which have four levels of maturity. Lower level activities should be easier to implement than the ones with higher maturity level. Based on how many activities you have completed in a level, the total completion percentage for that subdimension is displayed as a progress bar. 
+    There are also mappings between the questions and various controls from ISO 27001, OWASP SAMM v2.0 model activities or BSIMM model activities.
+...

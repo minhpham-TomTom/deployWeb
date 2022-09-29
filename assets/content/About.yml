@@ -1,0 +1,23 @@
+---
+About:
+  General description:
+    text: With this tool we are aiming to provide you a mean of assessing and access data safety
+#   Gouvernance:
+#     text: Activities and business processes related to the overall management of software development within an organization.
+#     image: assets/images/teamwork.png
+#   Architecture and Design:
+#     text: Includes activities related to threat assessments, security requirements and security architecture.
+#     image: assets/images/architecture.png
+#   Code Development and Review:
+#     text: Activities focused on how the the processes of code development and code review are done.
+#     image: assets/images/code_development_review.png
+#   Build and Deployment:
+#     text: This dimension contains activities related to the build and deployment stages of the SDLC.
+#     image: assets/images/deployment.png
+#   Operations and Observability:
+#     text: This dimension contains activities which focus on providing monitoring and logging information.
+#     image: assets/images/information.png
+#   Test and Verification:
+#     text: Activities included in this dimension focus on the testing phase of a software project, such as different testing techniques or review processes.
+#     image: assets/images/test.png
+# ...

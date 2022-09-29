@@ -1,0 +1,583 @@
+---
+Establish context:
+  What is your interface control?:
+    type: 1
+    point: 0
+    answersCheckContent:
+    definition: An interface control document (ICD) in systems engineering and software engineering, provides a record of all interface information (such as drawings, diagrams, tables, and textual information) generated for a project. The underlying interface documents provide the details and describe the interface or interfaces between subsystems or to a system or subsystem
+    level: 1
+    implementation: 
+      - Link https://confluence.tomtomgroup.com/pages/viewpage.action?pageId=964086933
+    chapter: 5.1 
+  How severe could an accident be that is related to the data? Could it be caused directly by the data?:
+    textInfo: "This form is used to determine the safety risk related to data for a particular organisation and usage. Answer the questions as they apply in the context\
+     of the scope of supply. Mark the response with the “best” fit for the given scenario. Note that not all elements have to be satisfied. 
+     \ For each response also add a brief justification for that particular selection as opposed to any other choice.
+     \ If the answer to a question is completely unknown at this stage; it is suggested that the middle value or higher is chosen and an explanation added to the justification.
+     \ If the answer to a question is completely unknown at this stage it is \n \n suggested that the middle value or higher is chosen and an explanation added to the justification."
+    type: 2
+    point: 0
+    definition: This question considers the safety consequence, the proximity and contribution of the data to the accident sequence
+    level: 2
+    implementation: 
+    chapter: AppedixB
+    answersCheckContent: 
+      - {type: All currently foreseen uses of the data could not contribute to an accident. The data is  not relied upon for safe operation. Negligible environmental impact., point: 1}
+      - {type: A possible use of data could contribute to a minor accident but only via lengthy and indirect routes. Could lead to minor injury or temporary discomfort for 1 or 2 people. Many other people/systems are involved in checking the data. Some aspects of safe operation rely very indirectly on the data. Minor environmental impact only via indirect routes., point: 2}
+      - {type: A use of the data could lead to a significant accident resulting in minor injuries affecting several people or one serious injury. Several other people/systems are involved in checking the data. There is a dependency on the data for safe operation. Environmental impact is possible., point: 4}
+      - {type: A likely use of the data could directly lead to a serious accident resulting in serious injuries affecting a number of people, or a single death. One human or independent check is involved for all data. There is major dependency on the data for safe operation. Major environmental impact is possible., point: 8}
+      - {type: An intended use of the data could lead to an accident resulting in death for several people. The accident could be caused by the data with little chance of anything else detecting and mitigating the data issues. The accident could affect the general public or cause catastrophic environmental impact. , point: 16}
+  What would be the impact on the organisation, client or public if an accident occurred related to the data?:
+    type: 2
+    point: 0
+    definition: This question considers the tolerability within this industry sector and the general public. How much would it affect the organisation or society? Would a claim be likely? Would it generate press interest? Would a formal investigation ensue?
+    level: 2
+    implementation: 
+    chapter: AppedixB
+    answersCheckContent: 
+      - {type: "Little interest, accidents happen all the time in this sector; very high societal tolerability. Negligible chance of claims or investigations. No adverse publicity likely." , point: 1}
+      - {type: "Some concern from the client, but accidents happen occasionally; high societal tolerability. Small chance of claim against the organisation. Local or specialist press interest. Minor investigation or audit." , point: 2}
+      - {type: "Public would be concerned, accidents are rare in this sector; some societal tolerability. Significant chance of claim against the organisation. Regional press interest. Client inquiry or investigation likely." , point: 4}
+      - {type: Public would be alarmed and consider the accident a result of poor practice; little societal tolerability. Claims very likely. National press or media coverage a possibility. Legal or independent inquiry may follow., point: 8}
+      - {type: Public would be outraged and consider such an accident unacceptable; almost no societal tolerability. Multiple claims/fines from regulators or courts are likely. International press or media coverage. Official and / or public enquiry possible., point: 16}
+  How much responsibility does this organisation have for data safety?:
+    type: 2
+    point: 0
+    definition: This question considers how much legal and other responsibility and ownership the organisation has for data safety aspects within this scenario. What liabilities for consequential losses/3rd party claims does the organisation have via the contract or other means? What is the scale of the organisation’s contribution to the overall scope?
+    level: 2
+    implementation: 
+    chapter: AppedixB
+    answersCheckContent: 
+      - {type: "The organisation is not responsible for any data safety aspects. No liabilities for accident claims related to the data lie with the organisation. Client or other party has accepted full data safety responsibility. The organisation is fully covered and indemnified by the client or a 3rd party." , point: 1}
+      - {type: "The organisation is a small part of a large consortium. It has minimal liability for data safety via the contract. It is partly covered by explicit client or 3rd party protections. All safety data is managed by subcontractors, the organisation only reviews and monitors." , point: 2}
+      - {type: "The organisation is a significant part of the consortium team. It has some share of the data safety responsibility. Specific data safety liabilities to the client via the contract are mentioned. There are no indemnities in the organisation’s favour. All key safety data obligations are explicitly flowed down to subcontractors." , point: 4}
+      - {type: The organisation is prime for a small programme or has the bulk of the data safety responsibility within a team. Specific accident-related liabilities in the contract are significant. The organisation provides some indemnities to others via the contract. Some significant data safety obligations are not flowed down to subcontractors., point: 8}
+      - {type: The organisation is priming a major programme or has total data safety responsibility. Specific accident-related liabilities in the contract are large (or unlimited). The organisation provides explicit indemnities in favour of the client/3rd parties for accidents. Safety data obligations have not been discussed or are not flowed down to subcontractors., point: 16}
+  What legal and regulatory environment will this work be subject to?:
+    type: 2
+    point: 0
+    definition: This question considers the legal and regulatory obligations that this work will have to conform to. How well is the legal framework defined and understood? Is there an established standards culture? Is there a regulator and certification process?
+    level: 2
+    implementation: 
+    chapter: AppedixB
+    answersCheckContent: 
+      - {type: "Well understood and tested legal framework, one jurisdiction. Highly regulated sector with one overseeing body. Well established industry guidelines and standards for safety data. Formal certification processes." , point: 1}
+      - {type: "Understood and established legal framework, a few related jurisdictions. Regulated sector, more than one overseeing body. Industry guidelines and standards for safety data. Some formal certification processes." , point: 2}
+      - {type: "Some understanding of legal position, several jurisdictions. Partially regulated sector, several possible overseeing bodies. Some industry guidelines and standards that refer to data. Informal certification processes." , point: 4}
+      - {type: "Complex, poorly defined legal position, multiple different jurisdictions. Largely unregulated sector with no established overseeing body. Some industry guidelines and standards that mention data. Some informal certification processes.", point: 6}
+      - {type: "Very complex, untested and unclear legal position, many diverse jurisdictions. Unregulated sector with no overseeing body. No industry guidelines or standards for data. No certification processes.", point: 10}
+  How mature is this organisation regarding data safety?:
+    type: 2
+    point: 0
+    definition: This question considers the maturity of the organisation in relation to awareness and management of the risks associated with safety data. Are staff trained, managed and resourced to enable proper handling of data safety risk?
+    level: 2
+    implementation: 
+    chapter: AppedixB
+    answersCheckContent: 
+      - {type: "Explicit recognition of data as a source of safety risk. Formal and established processes and procedures in place for the identification and control of safety data. Staff trained and fully aware of safety data risks. Senior management fully aware and supportive of data safety management activities. Management of safety data risks fully supported and funded." , point: 1}
+      - {type: "Awareness of data as a source of safety risk. Informal processes and procedures in place for the identification and control of safety data. Staff awareness of safety data risks. Senior management awareness of data safety management issues. Good support and funding for management of safety data risks." , point: 2}
+      - {type: "Some awareness of data as a source of safety risk. Some ad-hoc processes and procedures in place for the identification and control of safety data. Some staff awareness of safety data risks. Some senior management awareness of data safety management issues. Some support or partial funding for management of safety data risks." , point: 4}
+      - {type: Little awareness of data as a source of safety risk. Minimal processes or procedures in place for the identification and control of safety data. Little staff awareness of safety data risks. Little senior management awareness of data safety management issues. Little support or minimal funding for management of safety data risks., point: 7}
+      - {type: No recognition of data as a source of safety risk. No processes or procedures in place for the identification or control of safety data. No staff training or awareness of safety data risks. Senior management not aware or in denial of safety data risks. No support or funding for management of safety data risks., point: 10}
+  How widely is the data used and who by?:
+    type: 2
+    point: 0
+    definition: This question considers how much usage and what type of users there are likely to be of the data. How complex is the data supply chain? In what geographies is it used? How many owners and interfaces are there?
+    level: 2
+    implementation: 
+    chapter: AppedixB
+    answersCheckContent: 
+      - {type: "Minimal or infrequent usage. One Data Owner, a specialist highly trained user group. Single organisation or recipient usage only." , point: 1}
+      - {type: "A number of operational data users. Simple linear supply chain. More than one Data Owner. Specialist user or limited public access. Small scale operation. No general web access. Few user organisations or recipients." , point: 2}
+      - {type: "Regional usage. Some public or mainstream usage. A few supply chains. A few Data Owners. Some web access. Several user organisations or recipients." , point: 4}
+      - {type: "National usage. Public or mainstream usage. Several supply chains. Several Data Owners. Web access. Some or varied user organisations or recipients.", point: 7}
+      - {type: "International usage. Extensive public or mainstream usage. Extensive web access. Many complex supply chains. Many and diverse Data Owners. Many and diverse user organisations or recipients.", point: 12}
+  What is the scale, sophistication and complexity of the data and its manipulation?:
+    type: 2
+    point: 0
+    definition: This question considers the nature of the data, its lifecycle and how easy it is to detect errors in the data.
+    level: 2
+    implementation: 
+    chapter: AppedixB
+    answersCheckContent: 
+      - {type: "Simple data structures. Mature and established data storage and manipulation techniques and technologies. One or two interfaces. No timeliness aspects. No transformations. Data is easily verifiable. Data is easily traceable to original source." , point: 1}
+      - {type: "Varied data structures. Mainstream data storage and manipulation techniques and technologies. Several interfaces. Few timeliness aspects. Few data transformations. Data is verifiable. Data is traceable to original source." , point: 2}
+      - {type: "Complex with some unstructured data. Current data storage and manipulation techniques and technologies. Multiple interfaces. Some timeliness aspects. Some data transformations. Data is difficult to verify. Data is difficult to trace back to original source." , point: 4}
+      - {type: "Complex, varied or partially unstructured data. Novel storage and manipulation techniques and technologies. Multiple complex interfaces. Time critical. Complex data transformations. Data is very difficult to verify. Data is very difficult to trace back to original source.", point: 7}
+      - {type: "Highly complex, varied or unstructured data. Highly novel storage and manipulation techniques and technologies. Many and complex, ill-defined or dynamic interfaces. Highly time critical. Many and complex data transformations. Data is infeasible to verify. Data is impossible to trace back to original source.", point: 12}
+  How well defined and understood are the boundaries and interfaces for this data scenario?:
+    type: 2
+    point: 0
+    definition: 
+    level: 2
+    implementation: 
+    chapter: AppedixB
+    answersCheckContent: 
+      - {type: "One well-understood boundary and few, well-defined interfaces. Standard interface formats and protocols. No timeliness aspects to data exchange. No remaining ambiguities, TBCs or TBDs. No assumptions." , point: 1}
+      - {type: "A few, understood boundaries and several defined interfaces. Mainly standard interface formats and protocols. Few timeliness aspects to data exchange. Few areas of ambiguity, few TBCs and TBDs. Few assumptions." , point: 2}
+      - {type: "Several, established boundaries, some defined, some undefined and some ambiguous interfaces. Mixture of standard and non-standard interface formats and protocols. Some timely data exchanges. Some areas of ambiguity, some TBCs and TBDs. Some assumptions." , point: 4}
+      - {type: "Many, poorly understood boundaries, many undefined or ambiguous interfaces. Mostly non-standard interface formats and protocols. Time sensitive data exchange. Many areas of ambiguity, many TBCs and TBDs. Many assumptions.", point: 6}
+      - {type: "A large number of unclear boundaries; a large number of unknown and undefined interfaces. Completely non-standard, complex interface formats and protocols. Real-time data exchange. Large areas of ambiguity, a large number of TBCs and TBDs. A large number of assumptions.", point: 10}  
+  Score calculation:
+    type: 4
+    definition: Click the button to calculate the score
+    point: 0
+    level: 2
+    implementation: 
+    chapter: 
+  Do you have system definition if so provide evidence. If not explain why?: 
+    type: 1
+    answersCheckContent:
+    definition: 
+    level: 3
+    implementation: 
+    chapter: 6.1.4
+  For each software development involving data, is there a designated data safety manager? If so, does the data safety manager report directly to the project manager?: 
+    textInfo: This questionnaire may be used for two purposes 1. To support a procurement process - distributed by an organisation looking for a company that can handle safety-critical development, because the system they require to be developed is known to have safety-critical requirements 2. Internal audits - used internally by a company developing systems with safety-related data which needs to assure itself of its capability to fulfil customer needs.
+    type: 1
+    answersCheckContent: 
+    definition: 
+    level: 4
+    implementation: 
+    chapter: ApendixB
+  Are the management reporting channels for data assurance and software development separate?: 
+    type: 1
+    answersCheckContent:
+    definition: 
+    level: 4
+    implementation: 
+    chapter: ApendixB
+  Is data subject to a formal configuration control process?: 
+    type: 1
+    answersCheckContent:
+    definition: 
+    level: 4
+    implementation: 
+    chapter: ApendixB
+  Is data engineering represented on the system design team?: 
+    type: 1
+    answersCheckContent:
+    definition: 
+    level: 4
+    implementation: 
+    chapter: ApendixB
+  Is data engineering process improvement part of the company quality systems?: 
+    type: 1
+    answersCheckContent:
+    definition: 
+    level: 4
+    implementation: 
+    chapter: ApendixB
+  Are personnel specified as responsible for data safety as a separate role from software and system design and development?: 
+    type: 1
+    answersCheckContent:
+    definition: 
+    level: 4
+    implementation: 
+    chapter: ApendixB
+  Is there a required training programme for data specialists?: 
+    type: 1
+    answersCheckContent:
+    definition: 
+    level: 4
+    implementation: 
+    chapter: ApendixB
+  Is training on data safety issues part of the training for managers or management teams?:
+    type: 1
+    answersCheckContent:
+    definition: 
+    level: 4
+    implementation: 
+    chapter: ApendixB
+  Is there a formal training programme for data safety design and review leaders?: 
+    type: 1
+    answersCheckContent:
+    definition: 
+    level: 4
+    implementation: 
+    chapter: ApendixB
+  Is a mechanism employed for maintaining awareness of the state of the art in data safety technology?: 
+    type: 1
+    answersCheckContent:
+    definition: 
+    level: 4
+    implementation: 
+    chapter: ApendixB
+  Is a mechanism employed for comparing the company approach to data safety with external processes for data safety practised elsewhere in the industry?: 
+    type: 1
+    answersCheckContent:
+    definition: 
+    level: 4
+    implementation: 
+    chapter: ApendixB
+  Is a mechanism used for introducing new technologies and processes into system development?: 
+    type: 1
+    answersCheckContent:
+    definition: 
+    level: 4
+    implementation: 
+    chapter: ApendixB
+  Is a mechanism in place for identifying and replacing obsolescent processes related to data safety?: 
+    type: 1
+    answersCheckContent:
+    definition: 
+    level: 4
+    implementation: 
+    chapter: ApendixB
+  Describe any formal procedures adopted at each periodic management review to assess the status of data related to the system.: 
+    type: 1
+    answersCheckContent:
+    definition: 
+    level: 4
+    implementation: 
+    chapter: ApendixB
+  Describe the methods used for ensuring that the data development team understands each data requirement.:
+    type: 1
+    answersCheckContent:
+    definition: 
+    level: 4
+    implementation: 
+    chapter: ApendixB
+  Is a data risk assessment method used for assessing the use of existing data in new applications?: 
+    type: 1
+    answersCheckContent:
+    definition: 
+    level: 4
+    implementation: 
+    chapter: ApendixB
+  Are data test cases developed formally with a company standard?: 
+    type: 1
+    answersCheckContent:
+    definition: 
+    level: 4
+    implementation: 
+    chapter: ApendixB
+  Is there a document which describes how the customer is to be consulted over data issues?: 
+    type: 1
+    answersCheckContent:
+    definition: 
+    level: 4
+    implementation: 
+    chapter: ApendixB
+  Is particular care taken to capture requirements, design, review and test data for user interfaces?: 
+    type: 1
+    answersCheckContent:
+    definition: 
+    level: 4 
+    implementation: 
+    chapter: ApendixB
+  Is there a data risk monitoring and tracking to closure procedure practised?: 
+    type: 1
+    answersCheckContent:
+    definition: 
+    level: 4
+    implementation: 
+    chapter: ApendixB
+  Are statistics of failures due to data errors during development kept to feedback and learn from in future development?: 
+    type: 1
+    answersCheckContent:
+    definition: 
+    level: 4
+    implementation: 
+    chapter: ApendixB
+  Are data issue action items tracked to closure and reports maintained of causes?: 
+    type: 1
+    answersCheckContent:
+    definition: 
+    level: 4
+    implementation: 
+    chapter: ApendixB
+  Is configuration data separately developed from everyday operational data?: 
+    type: 1
+    answersCheckContent:
+    definition: 
+    level: 4
+    implementation: 
+    chapter: ApendixB
+  Is data test coverage measured and recorded?:
+    type: 1
+    answersCheckContent:
+    definition: 
+    level: 4
+    implementation: 
+    chapter: ApendixB
+  Are all states, from which configuration data will be required, tested, (including emergency reboot), and results recorded?: 
+    type: 1
+    answersCheckContent:
+    definition: 
+    level: 4
+    implementation: 
+    chapter: ApendixB
+  Are analyses of errors due to data conducted to determine their process related causes?:
+    type: 1
+    answersCheckContent:
+    definition: 
+    level: 4
+    implementation: 
+    chapter: ApendixB
+  Are the process causes reviewed and changes to processes implemented where appropriate?:
+    type: 1
+    answersCheckContent:
+    definition: 
+    level: 4
+    implementation: 
+    chapter: ApendixB
+  Is regression testing routinely performed when errors are discovered?: 
+    type: 1
+    answersCheckContent:
+    definition: 
+    level: 4
+    implementation: 
+    chapter: ApendixB
+  Is the adequacy of regression testing subject to an assurance process to ensure new errors are not introduced?:
+    type: 1
+    answersCheckContent:
+    definition: 
+    level: 4
+    implementation: 
+    chapter: ApendixB
+  Is a mechanism used for identifying and resolving system engineering issues that affect data?:
+    type: 1
+    answersCheckContent:
+    definition: 
+    level: 4
+    implementation: 
+    chapter: ApendixB
+  Is a mechanism used for ensuring traceability between the data requirements and the top level design? : 
+    type: 1
+    answersCheckContent:
+    definition: 
+    level: 4
+    implementation: 
+    chapter: ApendixB
+  Is the importance of data in the system engineering process reviewed to maintain processes at an adequate level to cope with the expanding role of data in the Internet of Things?:
+    type: 1
+    answersCheckContent:
+    definition: 
+    level: 4
+    implementation: 
+    chapter: ApendixB 
+  What is your data categories?: 
+    type: 3
+    definition: https://tomtominternational-my.sharepoint.com/:x:/g/personal/minh_pham_tomtom_com/ESpQSec9sy1OvExSWAMVR4kBour7uTEFBTulng4ImUPnug?e=KlBQKu
+    point: 0
+    level: 5
+    implementation: 
+    chapter: 
+    answersCheckContent: 
+        - {type: "Predictive"}
+        - {type: "Scope, Assumption and Context"} 
+        - {type: "Requirements"} 
+        - {type: "Interface"} 
+        - {type: "Reference or Lookup"} 
+        - {type: "Design and Development"}
+        - {type: "Software"}
+        - {type: "Verfication"}
+        - {type: "Machine Learning"}
+        - {type: "Infrastructure"}
+        - {type: "Behaviour"}
+        - {type: "Adaptation"}
+        - {type: "Staff and training"}
+        - {type: "Asset"}
+        - {type: "Performance"}
+        - {type: "Release"}
+        - {type: "Intructional"}
+        - {type: "Evolution"}
+        - {type: "End of life"}
+        - {type: Stored} 
+        - {type: Dynamic}
+Identify risks:
+  Do you have data-related accidents and incidents? If so please list them and provide their evidences.:   
+    type: 1
+    answersCheckContent:
+    definition: 
+    level: 1
+    implementation: 
+    chapter: 6.2.1
+  What would be unintended behaviours resulted from the data?:
+    type: 1
+    risk: 
+    measure: 
+    difficultyOfImplementation:
+      knowledge: 
+      time: 
+      resources: 
+    usefulness: 
+    level: 1
+    samm: 
+    chapter: 4.1
+  What could be the risks that linked to Data Artifacts and Data Properties?:
+    type: 1
+    risk: 
+    measure: 
+    difficultyOfImplementation:
+      knowledge: 
+      time: 
+      resources: 
+    usefulness: 
+    level: 1
+    samm: 
+    chapter: 4.1
+  Conduct a top-down approach:
+    type: 1
+    risk: 
+    measure: 
+    difficultyOfImplementation:
+      knowledge: 
+      time: 
+      resources: 
+    usefulness: 
+    level: 2
+    samm: 
+    chapter: 5.2
+  Conduct a bottom-up approach:
+    type: 1
+    risk: 
+    measure: 
+    difficultyOfImplementation:
+      knowledge: 
+      time: 
+      resources: 
+    usefulness: 
+    level: 2
+    samm: 
+    chapter: 5.2
+  Update your planning documents:
+    type: 1
+    risk: 
+    measure: 
+    difficultyOfImplementation:
+      knowledge: 
+      time: 
+      resources: 
+    usefulness: 
+    level: 2
+    samm: 
+    chapter: 
+  Data Properties:
+    type: 1
+    definition: 
+    point: 0
+    level: 3
+    implementation: 
+    chapter: 6.2.3
+    answersCheckContent: 
+  HAZOP Guidewords:
+    type: 4
+    definition: A Hazard and Operability study (HAZOP) provides a structured approach for identifying hazards. It involves a multidisciplinary team collaborating to identify potential hazards and operability problems. Structure and completeness are supported through the use of guideword prompts, for example, considering the implications if software components perform functions early, late or not at all. These prompts are intended to stimulate imaginative thinking, to focus the study and to elicit ideas and discussion
+    point: 0
+    level: 4
+    implementation: 
+    chapter: 
+Analyze risks:
+  What is the likelihood of the Proximity?:
+    type: 2
+    point: 0
+    definition: 
+    level: 1
+    implementation:  
+      - High - A known use of the data is highly likely to lead to an accident.
+      - Medium - A possible use of the data could lead to an accident.
+      - Low - All currently foreseen uses of the data could lead to harm only via lengthy and indirect routes.
+    chapter: 6.3.1
+    answersCheckContent: 
+      - {type: "High" , point: 3}
+      - {type: "Medium" , point: 2}
+      - {type: "Low" , point: 1}
+  What is the likelihood of the Dependency?:
+    type: 2
+    point: 0
+    definition: 
+    level: 1
+    implementation: 
+      - High - Data is completely relied upon.
+      - Medium - Data is indirectly relied upon.
+      - Low - Little reliance on data.
+    chapter: 6.3.1
+    answersCheckContent: 
+      - {type: "High" , point: 3}
+      - {type: "Medium" , point: 2}
+      - {type: "Low" , point: 1}
+  What is the likelihood of the Prevention?:
+    type: 2
+    point: 0
+    definition: 
+    level: 1
+    implementation: 
+      - High - Difficult or impossible to guard / barrier against errors.
+      - Medium - Possible to guard / barrier against errors.
+      - Low - Easy to guard / barrier against error.
+    chapter: 6.3.1
+    answersCheckContent: 
+      - {type: "High" , point: 3}
+      - {type: "Medium" , point: 2}
+      - {type: "Low" , point: 1}
+  What is the likelihood of the Detection?:
+    type: 2
+    point: 0
+    definition: 
+    level: 1
+    implementation: 
+      - High - Low or no chance of anything else detecting an error.
+      - Medium - Some other people / systems are involved in checking the data.
+      - Low - Many other people / systems are involved in checking the data.
+    chapter: 6.3.1
+    answersCheckContent: 
+      - {type: "High" , point: 3}
+      - {type: "Medium" , point: 2}
+      - {type: "Low" , point: 1}
+  What is the likelihood of the Correction?:
+    type: 2
+    point: 0
+    definition: 
+    level: 1
+    implementation: 
+      - Difficult or impossible to correct or workaround errors.
+      - Possible to correct or workaround errors.
+      - Easy to correct or workaround errors.
+    chapter: 6.3.1
+    answersCheckContent: 
+      - {type: "High" , point: 3}
+      - {type: "Medium" , point: 2}
+      - {type: "Low" , point: 1}
+  What is the severity of all characteristic above?:
+    type: 2
+    point: 0
+    definition: 
+    level: 1
+    implementation: 
+    chapter: 6.3.1
+    answersCheckContent: 
+      - {type: "Minor" , point: 0}
+      - {type: "Moderate" , point: 0}
+      - {type: "Significant" , point: 0}
+      - {type: "Major" , point: 0}
+      - {type: "Catastrophic" , point: 0}
+  Calculate DSAL:
+    type: 4
+    definition: Click the button to calculate the score
+    point: 0
+    level: 1
+    implementation: 
+    chapter: 6.3.1
+  Analyze DSALs:
+    type: 1
+    risk: 
+    measure: 
+    difficultyOfImplementation:
+      knowledge: 
+      time: 
+      resources: 
+    usefulness: 
+    level: 2
+    samm: 
+    chapter: 6.3.2
+Evaluate and treat risks:
+  Treat risks: 
+    type: 4
+    definition: 
+    point: 0
+    level: 1
+    implementation: 
+    chapter: 
+...

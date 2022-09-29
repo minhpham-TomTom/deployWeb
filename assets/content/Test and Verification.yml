@@ -1,0 +1,862 @@
+---
+Dynamic depth for applications:
+  Do you perform simple scan?:
+    risk: Deficient security tests are performed. Simple vulnerabilities are not detected and missing security configurations (e.g. headers) are not set. Fast feedback is not given.
+    measure: A simple scan is performed to get a security baseline. In case the test is done in under 10 minutes, it should be part of the build and deployment process.
+    difficultyOfImplementation:
+      knowledge: 2
+      time: 3
+      resources: 1
+    usefulness: 2
+    level: 1
+    dependsOn:
+      - Do you have a defined build process?
+    samm: ST2
+    implementation:
+    - OWASP Zap
+    - Arachni
+    samm2: v-security-testing|A|1
+    iso270012017:
+      - 14.2.3
+      - 14.2.8
+  Do you cover client side dynamic components?:
+    risk: Parts of the service are not covered during the scan, because JavaScript is not getting executed. Therefore, the co
+    measure: Usage of a spider which executes dynamic content like JavaScript, e.g. via Selenium.
+    difficultyOfImplementation:
+      knowledge: 3
+      time: 3
+      resources: 1
+    usefulness: 4
+    level: 2
+    dependsOn:
+      - Do you use different roles?
+    samm: ST-2
+    samm2: v-security-testing|A|2
+    iso270012017:
+      - 14.2.3
+      - 14.2.8
+    implementation: 
+      - Ajax Spider
+  Do you use different roles?:
+    risk: Parts of the service are not covered during the scan, because a login is not performed.
+    measure: Integration of authentication with all roles used in the service.
+    difficultyOfImplementation:
+      knowledge: 3
+      time: 3
+      resources: 1
+    usefulness: 2
+    level: 2
+    dependsOn:
+      - Do you perform simple scan?
+    samm2: v-security-testing|A|2
+    iso270012017:
+      - 14.2.3
+      - 14.2.8
+  Do you cover hidden endpoints?:
+    risk: Hidden endpoints of the service are not getting tracked.
+    measure: Hidden endpoints are getting detected and included in the vulnerability scan.
+    difficultyOfImplementation:
+      knowledge: 3
+      time: 2
+      resources: 1
+    usefulness: 5
+    level: 3
+    implementation: 
+      - cURL, OpenAPI
+    dependsOn:
+      - Do you use different roles?
+    samm2: v-security-testing|A|2
+    iso270012017:
+  Do you cover more input vectors?:
+    risk: Parts of the service are not covered. For example specially formatted or coded parameters are not getting detected as parameter (e.g. parameters in REST-like URLs, parameters in JSON-Format or base64-coded parameters).
+    measure: Special parameter and special encodings are defined, so that they get fuzzed by the used vulnerability scanners.
+    difficultyOfImplementation:
+      knowledge: 5
+      time: 5
+      resources: 1
+    usefulness: 4
+    level: 3
+    dependsOn:
+      - Do you use different roles?
+    samm2: v-security-testing|A|2
+    iso270012017:
+  Do you cover sequential operations?:
+    risk: Sequential operations like workflows (e.g. login -> put products in the basket
+    measure: Sequential operations are defined and checked by the vulnerability scanner in the defined order.
+    difficultyOfImplementation:
+      knowledge: 3
+      time: 3
+      resources: 1
+    usefulness: 5
+    level: 3
+    implementation: 
+      - cURL
+    dependsOn:
+      - Do you use different roles?
+    samm2: v-security-testing|A|2
+    iso270012017:
+      - 14.2.8
+      - 14.2.3
+  Do you use multiple scanners?:
+    risk: Each vulnerability scanner has different opportunities. By using just one scanner, some vulnerabilities might not be found.
+    measure: Usage of multiple spiders and scanner enhance the coverage and the vulnerabilities.
+    difficultyOfImplementation:
+      knowledge: 3
+      time: 3
+      resources: 5
+    usefulness: 1
+    level: 3
+    dependsOn:
+      - Do you use different roles?
+    implementation: 
+      - SecureCodeBox
+    samm2: v-security-testing|A|2
+    iso270012017:
+      - 12.6.1
+      - 14.2.5
+  Do you perfom coverage analysis?:
+    risk: Parts of the service are not still covered.
+    measure: Check that there are no missing paths in the application with coverage-tools.
+    difficultyOfImplementation:
+      knowledge: 4
+      time: 5
+      resources: 3
+    usefulness: 4
+    level: 3
+    implementation: 
+      - OWASP Code Pulse
+    samm2: v-security-testing|A|2
+    iso270012017:
+  Do you perform coverage of service to service communication?:
+    risk: Service to service communication is not covered.
+    measure: Service to service communication is dumped and checked.
+    difficultyOfImplementation:
+      knowledge: 4
+      time: 5
+      resources: 2
+    usefulness: 3
+    level: 3
+    dependsOn:
+      - Do you perform simple scan?
+    samm2: v-security-testing|A|2
+    iso270012017:
+      - 14.2.3
+      - 14.2.8
+Static depth for applications:
+  Do you test server side components with known vulnerabilities?:
+    risk: Server side components might have vulnerabilities.
+    measure: Tests for known vulnerabilities in server side components (e.g. backend/middleware) are performed.
+    difficultyOfImplementation:
+      knowledge: 1
+      time: 2
+      resources: 1
+    usefulness: 5
+    level: 1
+    dependsOn:
+      - Do you have a defined build process?
+    implementation: 
+      - OWASP Dependency Check
+    samm: SA
+    samm2: v-security-testing|A|2
+    iso270012017:
+      - 12.6.1
+  Do you test client side components with known vulnerabilities?:
+    risk: Client side components might have vulnerabilities.
+    measure: Tests for known vulnerabilities in components of the frontend are performed.
+    difficultyOfImplementation:
+      knowledge: 1
+      time: 2
+      resources: 1
+    usefulness: 2
+    level: 3
+    dependsOn:
+      - Do you have a defined build process?
+    implementation:
+      -  retire.js https://github.com/RetireJS/retire.js/
+      -  npm audit https://docs.npmjs.com/cli/audit
+    samm2: v-security-testing|A|2
+    iso270012017:
+      - 12.6.1
+  Do you perform static analysis for important server side components?:
+    risk: Important parts in the source code of the middleware have vulnerabilities.
+    measure: Usage of static analysis tools for important parts of the middleware are used. Static analysis uses for example string matching algorithms and/or dataflow analysis.
+    difficultyOfImplementation:
+      knowledge: 2
+      time: 2
+      resources: 1
+    usefulness: 4
+    level: 2
+    implementation: 
+      - eslint, FindSecurityBugs, jsprime
+    dependsOn:
+      - Do you have a defined build process?
+    samm2: v-security-testing|A|2
+    iso270012017:
+      - 12.6.1
+  Do you perform static analysis for important client side components?:
+    risk: Important parts in the source code of the frontend have vulnerabilities.
+    measure: Usage of static analysis tools for important parts of the frontend are used. Static analysis uses for example string matching algorithms and/or dataflow analysis.
+    difficultyOfImplementation:
+      knowledge: 2
+      time: 2
+      resources: 1
+    usefulness: 3
+    level: 3
+    implementation:
+      - eslint
+      - FindSecurityBugs
+      - jsprime
+      - bdd-mobile-security-automation-framework https://github.com/ing-bank/bdd-mobile-security-automation-framework
+    samm2: v-security-testing|A|2
+    iso270012017:
+      - 12.6.1
+    dependsOn:
+      - Do you have a defined build process?
+  Do you detect and remove source code duplicates?:
+    risk: Duplicates in source code might influence the stability of the application.
+    measure: Automatic Detection and manual removal of duplicates in source code.
+    difficultyOfImplementation:
+      knowledge: 1
+      time: 1
+      resources: 1
+    usefulness: 1
+    level: 3
+    implementation: 
+      - PMD
+    dependsOn:
+      - Do you have a defined build process?
+    samm2: v-security-testing|A|2
+    iso270012017:
+      - 14.2.1
+      - 14.2.5
+  Do you perform static analysis for all components/libraries?:
+    risk: Used components like libraries and legacy applications might have vulnerabilities
+    measure: Usage of a static analysis for all used components.
+    difficultyOfImplementation:
+      knowledge: 2
+      time: 4
+      resources: 2
+    usefulness: 3
+    level: 3
+    dependsOn:
+      - "Do you perform static analysis for important client side components?"
+      - "Do you perform static analysis for important server side components?"
+    samm2: v-security-testing|A|2
+    iso270012017:
+      - 12.6.1
+  Do you perform static analysis for all self written components?:
+    risk: Parts in the source code of the frontend or middleware have vulnerabilities.
+    measure: Usage of static analysis tools for all parts of the middleware and frontend.
+      Static analysis uses for example string matching algorithms and/or dataflow analysis.
+    difficultyOfImplementation:
+      knowledge: 2
+      time: 2
+      resources: 1
+    usefulness: 4
+    level: 3
+    implementation: 
+      - eslint, FindSecurityBugs, jsprime
+    dependsOn:
+      - "Do you perform static analysis for important client side components?"
+      - "Do you perform static analysis for important server side components?"
+    samm2: v-security-testing|A|2
+    iso270012017:
+      - 12.6.1
+  Do you perform stylistic analysis?:
+    risk: False source code indenting might lead to vulnerabilities.
+    measure: Analysis of compliance to style guides of the source code ensures that source code indenting rules are met.
+    difficultyOfImplementation:
+      knowledge: 1
+      time: 1
+      resources: 1
+    usefulness: 1
+    level: 3
+    implementation: 
+      - PMD
+    samm2: v-security-testing|A|2
+    iso270012017:
+      - 12.6.1
+      - 14.2.1
+      - 14.2.5
+  Do you use multiple analyzers?:
+    risk: Each vulnerability analyser has different opportunities. By using just one analyser, some vulnerabilities might not be found.
+    measure: Usage of multiple static tools to find more vulnerabilities.
+    difficultyOfImplementation:
+      knowledge: 3
+      time: 3
+      resources: 5
+    usefulness: 1
+    level: 3
+    samm2: v-security-testing|A|3
+    iso270012017:
+      - 12.6.1
+      - 14.2.1
+      - 14.2.5
+    dependsOn:
+      - "Do you test server side components with known vulnerabilities?"
+      - "Do you test client side components with known vulnerabilities?"
+      - "Do you perform static analysis for all self written components?"
+Test-Intensity:
+  Do you use default settings for test intensity?:
+    risk: Time pressure and ignorance might lead to false predictions for the test intensity.
+    measure: The intensity of the used tools are not modified to safe time.
+    difficultyOfImplementation:
+      knowledge: 1
+      time: 1
+      resources: 1
+    usefulness: 1
+    level: 1
+    samm2: v-security-testing|A|1
+    iso270012017:
+      - 12.6.1
+      - 14.2.1
+      - 14.2.5
+  Do you ensure high test intensity?:
+    risk: A too small intensity or a too high confidence might lead to not visible vulnerabilities.
+    measure: A deep scan with high test intensity and a low confidence threshold is performed.
+    difficultyOfImplementation:
+      knowledge: 3
+      time: 3
+      resources: 5
+    usefulness: 3
+    level: 1
+    samm2: v-security-testing|A|2
+    iso270012017:
+      - 12.6.1
+      - 14.2.1
+      - 14.2.5
+  Do you perform regular tests?:
+    risk: After pushing source code to the version control system, any delay in receiving feedback on defects makes them harder for the developer to remediate.
+    measure: On each push and/or at given intervals automatic security tests are performed.
+    difficultyOfImplementation:
+      knowledge: 1
+      time: 1
+      resources: 1
+    usefulness: 2
+    level: 2
+    implementation: 
+    samm2: i-secure-build|A|3
+    iso270012017:
+      - 14.2.3
+      - 14.2.8
+      - 14.2.9
+  Do you deactivate unneeded tests?:
+    risk: As tools cover a wide range of different vulnerability tests, they might not match the used components. Therefore, they need more time and resources as they need and the feedback loops takes too much time.
+    measure: Unneeded tests are deactivated. For example in case the service is using a Mongo database and no mysql database, the dynamic scan doesn't need to test for sql injections.
+    difficultyOfImplementation:
+      knowledge: 2
+      time: 3
+      resources: 1
+    usefulness: 1
+    level: 2
+    samm2: v-security-testing|A|2
+    iso270012017:
+      - 12.6.1
+      - 14.2.1
+      - 14.2.5
+  Do you create and apply of a testing concept?:
+    risk: Scans might use a too small or too high test intensity.
+    measure: A testing concept considering the amount of time per scan/intensity is created and applied. A dynamic analysis needs more time than a static analysis. The dynamic scan, depending on the test intensity might be performed on every commit, every night, every week or once in a month.
+    difficultyOfImplementation:
+      knowledge: 3
+      time: 3
+      resources: 3
+    usefulness: 2
+    level: 3
+    samm2: v-security-testing|A|2
+    iso270012017:
+      - 12.6.1
+      - 14.2.2
+      - 14.2.3
+      - 14.2.1
+      - 14.2.5
+Consolidation:
+  Do you define quality gates?:
+    risk: Improper examination of vulnerabilities leads to no visibility at all.
+    measure: Quality gates for found vulnerabilities are defined. In the start it is important to not overload the security analyst, therefore the recommendation is to start with alerting of high cirital vulnerabilities.
+    difficultyOfImplementation:
+      knowledge: 1
+      time: 1
+      resources: 1
+    usefulness: 4
+    level: 1
+    samm: "IR2-A"
+    samm2: "i-defect-management|A|2"
+    iso270012017:
+      - 12.6.1
+      - 16.1.4
+    implementation: 
+  Do you treat false positives?:
+    risk: As false positive occure during each test, all vulnerabilities might be ignored.
+    measure: False positives are suppressed so they will not show up on the next tests again. Most security tools have the possibility to suppress false positives. A Vulnerability Management System might be used.
+    difficultyOfImplementation:
+      knowledge: 1
+      time: 1
+      resources: 1
+    usefulness: 4
+    level: 1
+    implementation:
+      -  OWASP Defect Dojo https://github.com/DefectDojo/django-DefectDojo
+      -  Purify https://github.com/faloker/purify/
+    samm: IR2-A
+    samm2: i-defect-management|A|2
+    iso270012017:
+      - 16.1.6
+  Do you treat defects with severity high or higher?:
+    risk: Vulnerabilities with severity high or higher are not visible.
+    measure: Vulnerabilities with severity high or higher are added to the quality gate.
+    difficultyOfImplementation:
+      knowledge: 2
+      time: 2
+      resources: 1
+    usefulness: 4
+    level: 1
+    extra : False positive analysis, specially for static analysis, is time consuming.
+    samm2: i-defect-management|B|2
+    iso270012017:
+      - 12.6.1
+      - 16.1.4
+  Do you have a simple visualization of defects?:
+    risk: The security level of a component is not visible. Therefore, the motivation to enhance the security is not give.
+    measure: Vulnerabilities are simple visualized.
+    difficultyOfImplementation:
+      knowledge: 2
+      time: 2
+      resources: 1
+    usefulness: 3
+    level: 2
+    implementation:
+      # - OWASP Dependency Check Jenkins Plugin
+      # - LogParser Jenkins Plugins
+      - OWASP Defect Dojo https://github.com/DefectDojo/django-DefectDojo
+      - Purify https://github.com/faloker/purify/
+    samm2: i-defect-management|B|1
+    iso270012017:
+      - 8.2.1
+      - 8.2.2
+      - 8.2.3
+      - 16.1.4
+  Do you have an advanced visualization of defects?:
+    risk: Correlation of the vulnerabilities of different tools to have an overview of the the overall security level per component/project/team is not given.
+    measure: Findings are visualized per component/project/team.
+    difficultyOfImplementation:
+      knowledge: 2
+      time: 4
+      resources: 1
+    usefulness: 2
+    level: 3
+    implementation:
+      - OWASP Defect Dojo https://github.com/DefectDojo/django-DefectDojo
+      - Purify https://github.com/faloker/purify/
+    samm2: defect-management|B|1
+    iso270012017:
+      - 8.2.1
+      - 8.2.2
+      - 8.2.3
+      - 16.1.4
+  Do you integrate vulnerability issues into the development process?:
+    risk: To read console output of the build server to search for vulnerabilities might be difficult. Also, to check a vulnerability management system might not be a daily task for a developer.
+    measure: Vulnerabilities are tracked in the teams issue system (e.g. jira).
+    difficultyOfImplementation:
+      knowledge: 2
+      time: 2
+      resources: 1
+    usefulness: 2
+    level: 3
+    implementation: 
+      - "At SAST (Static Application Security Testing): Server-side / client-side teams can easily be recorded. With microservice architecture, individual microservices can be used usually Teams. At DAST (Dynamic Application Security Testing): vulnerabilities are classified and can be assigned to server-side and client-side teams."
+    samm2: "i-defect-management|B|2"
+    iso270012017:
+      - 16.1.4
+      - 16.1.5
+      - 16.1.6
+  Do you ensure reproducible defect tickets?:
+    risk: Vulnerability descriptions are hard to understand by staff from operations and development.
+    measure: Vulnerabilities include the test procedure to give the staff from operations and development the ability to reproduce vulnerabilities. This enhances the understanding of vulnerabilities and therefore the fix have a higher quality.
+    difficultyOfImplementation:
+      knowledge: 3
+      time: 2
+      resources: 2
+    usefulness: 2
+    level: 3
+    implementation: 
+      - Mozilla Zest https://github.com/mozilla/zest
+    samm2: i-defect-management|B|2
+    iso270012017:
+      - 8.2.1
+      - 8.2.2
+      - 8.2.3
+      - 16.1.4
+  Do you treat defects with severity middle?:
+    risk: Vulnerabilities with severity middle are not visible.
+    measure: Vulnerabilities with severity middle are added to the quality gate.
+    difficultyOfImplementation:
+      knowledge: 2
+      time: 2
+      resources: 1
+    usefulness: 3
+    level: 3
+    extra : False positive analysis, specially for static analysis, is time consuming.
+    samm2: i-defect-management|B|2
+    iso270012017:
+      - 12.6.1
+      - 16.1.4
+  Do you treat all defects?:
+    risk: Vulnerabilities with severity low are not visible.
+    measure: All vulnerabilities are added to the quality gate.
+    difficultyOfImplementation:
+      knowledge: 3
+      time: 2
+      resources: 1
+    usefulness: 2
+    level: 3
+    samm2: i-defect-management|B|2
+    iso270012017:
+      - 12.6.1
+      - 16.1.4
+  Do you use a vulnerability management system?:
+    risk: Maintenance of false positives in each tool enforces a high workload. In addition a correlation of the same finding from different tools is not possible.
+    measure: Aggregation of vulnerabilities in one tool reduce the workload to mark false positives.
+    difficultyOfImplementation:
+      knowledge: 3
+      time: 3
+      resources: 2
+    usefulness: 2
+    level: 3
+    implementation:
+      -  OWASP Defect Dojo https://github.com/DefectDojo/django-DefectDojo
+      -  Purify https://github.com/faloker/purify/
+    samm2: i-defect-management|B|1
+    iso270012017:
+      - 12.6.1
+      - 16.1.3
+      - 16.1.4
+      - 16.1.5
+      - 16.1.6
+Application tests:
+  Do you perform security unit tests for important components?:
+    risk: Vulnerabilities are rising due to code changes.
+    measure: Usage of unit tests to test important security related features like authentication and authorization.
+    difficultyOfImplementation:
+      knowledge: 3
+      time: 4
+      resources: 2
+    usefulness: 3
+    level: 1
+    extra : The integration of module tests takes place during development instead, it highlights vulnerabilities in sub-routines, functions, modules, libraries etc. checked.
+    implementation:
+      - JUnit
+      - Karma https://karma-runner.github.io'
+    samm: ST2-B
+    samm2: v-security-testing|B|3
+    iso270012017:
+      - 14.2.3
+      - 14.2.8
+  Do you perform security integration tests for important components?:
+    risk: Vulnerabilities are rising due to code changes in a complex microservice environment.
+    measure: Implementation of essential security related integration tests. For example for authentication and authorization.
+    difficultyOfImplementation:
+      knowledge: 3
+      time: 4
+      resources: 2
+    usefulness: 2
+    level: 3
+    implementation: 
+      - HttpUnit
+    samm: ST2-B
+    samm2: v-security-testing|B|3
+    iso270012017:
+      - 14.2.3
+      - 14.2.8
+  Do you ensure high coverage of security related module and integration tests?:
+    risk: Vulnerabilities are rising due to code changes in a complex microservice environment in not important components.
+    measure: Implementation of security related tests via unit tests and integration tests. Including the test of libraries, in case the are not tested already.
+    difficultyOfImplementation:
+      knowledge: 5
+      time: 5
+      resources: 3
+    usefulness: 3
+    level: 3
+    samm: ST2-B
+    samm2: v-security-testing|B|3
+    iso270012017:
+      - 14.2.3
+      - 14.2.8
+  Do you perform smoke test?:
+    risk: During a deployment an error might happen which leads to non-availability of the system, a part of the system or a feature.
+    measure: Integration tests are performed against the production environment after each deployment.
+    difficultyOfImplementation:
+      knowledge: 2
+      time: 2
+      resources: 2
+    usefulness: 2
+    level: 3
+    implementation: 
+    dependsOn:
+      - Do you have a defined deployment process?
+    samm: ST2-B
+    samm2: v-security-testing|B|3
+    iso270012017:
+      - 14.2.3
+      - 14.2.8
+Dynamic depth for infrastructure:
+  Do you test for exposed services?:
+    risk: Standard network segmentation and firewalling has not been performed, leading to world open cluster management ports.
+    measure: With the help of tools the network configuration of unintenonal exposed cluster(s) are tested. To identify clusters, all subdomains might need to be identified with a tool like OWASP Amass to perform portscans based o the result.
+    difficultyOfImplementation:
+      knowledge: 1
+      time: 1
+      resources: 1
+    usefulness: 3
+    level: 1
+    implementation:
+     - nmap
+     - OWASP Amass https://github.com/OWASP/Amass
+    samm: EH2-B
+    samm2: v-security-testing|A|1
+    iso270012017:
+      - 13.1.3
+      - 14.2.3
+      - 14.2.8  
+  Do you test the configuration of cloud environments?:
+    risk: Standard hardening practices for cloud environments are not performed leading to vulnerabilities.
+    measure: With the help of tools the configuration of virtual environments are tested.
+    difficultyOfImplementation:
+      knowledge: 2
+      time: 2
+      resources: 1
+    usefulness: 4
+    level: 2
+    implementation:
+      - kube-hunter https://github.com/aquasecurity/kube-hunter
+      - openVAS
+    samm: EH2-B
+    iso270012017:
+      - 12.6.1
+      - 14.2.3
+      - 14.2.8
+  Do you test network segmentation?:
+    risk: Wrong or no network segmentation of pods makes it easyer for an attacker to access a database and extract or modify data.
+    measure: Cluster interal test needs to be performed. Integration of fine granulated network segmenation (also between pods in the same namespace).
+    difficultyOfImplementation:
+      knowledge: 2
+      time: 2
+      resources: 1
+    usefulness: 3
+    level: 2
+    implementation:  
+      - netassert https://github.com/controlplaneio/netassert"
+    dependendsOn: Segmented networks for virtual environments
+    samm2: v-security-testing|A|2
+    iso270012017:
+      - 13.1.3
+      - 14.2.3
+      - 14.2.8
+  Do you perform weak password test?:
+    risk: Weak passwords in components like applications or systems, specially for privileged accounts, lead to take over of that account.
+    measure: Automatic brute force attacks are performed. Specially the usage of standard accounts like 'admin' and employee user-ids is recommended.
+    difficultyOfImplementation:
+      knowledge: 2
+      time: 1
+      resources: 1
+    usefulness: 1
+    level: 3
+    implementation: 
+      - HTC Hydra
+    samm2: v-security-testing|A|2
+    iso270012017:
+      - 9.4.3
+  Do you perform load tests?:
+    risk: As it is unknown how many requests the systems and applications can serve, due to an unexpected load the availability is disturbed.
+    measure: Load test against the production system or a production near system is performed.
+    difficultyOfImplementation:
+      knowledge: 3
+      time: 2
+      resources: 5
+    usefulness: 3
+    level: 3
+    samm2: v-security-testing|A|1
+    iso270012017:
+      - 12.1.3
+      - 14.2.3
+      - 14.2.8  
+Static depth for infrastructure:
+  Do you test for Stored Secrets?:
+    risk: Stored secrets in git history, in container images or directly in code shouldn't exists because they might be read unauthorized.
+    measure: Test for secrets in code, container images and history
+    difficultyOfImplementation:
+      knowledge: 2
+      time: 1
+      resources: 2
+    usefulness: 2
+    level: 1
+    implementation:
+      -  truffleHog https://github.com/dxa4481/truffleHog
+      -  go-pillage-registries https://github.com/nccgroup/go-pillage-registries
+    samm2: v-security-testing|A|1
+    iso270012017:
+      - 9.4.3
+      - 10.1.2
+  Do you test cluster deployment resources?:
+    risk: The deployment configuration (e.g. kubernetes deployment resources) might contain unsecured configurations.
+    measure: Test the deployment configuration for virtualized environments for unsecured configurations.
+    difficultyOfImplementation:
+      knowledge: 2
+      time: 1
+      resources: 2
+    usefulness: 3
+    level: 2
+    implementation:
+      -  kubesec https://kubesec.io/
+    samm2: v-security-testing|A|1
+    iso270012017:
+      - 12.6.1
+      - 14.2.3
+      - 14.2.8
+  Do you test virtualized environments?:
+    risk: Virtualized environments (e.g. via <i>Container Images</i>) might contains unsecure configurations.
+    measure: Test virtualized environments for unsecured configurations.
+    difficultyOfImplementation:
+      knowledge: 2
+      time: 1
+      resources: 2
+    usefulness: 3
+    level: 2
+    implementation:
+      - Dive to inspect a container images https://github.com/wagoodman/dive
+      - Cluster Scanner (will be open sourced soon) to check different aspects
+    samm2: v-security-testing|A|1
+  Do you test the definition of virtualized environments?:
+    risk: The definition of virtualized environments (e.g. via <i>Dockerfile</i>) might contains unsecure configurations.
+    measure: Test the definition of virtualized environments for unsecured configurations.
+    difficultyOfImplementation:
+      knowledge: 2
+      time: 1
+      resources: 2
+    usefulness: 3
+    level: 2
+    implementation:
+      -  Dockerfile with hadolint https://github.com/hadolint/hadolint
+      -  Deployment with kube-score https://github.com/zegl/kube-score
+    samm2: v-security-testing|A|1
+    iso270012017:
+      - 12.6.1
+      - 14.2.3
+      - 14.2.8
+      - 14.2.1
+  Do you test the clould configuration?:
+    risk: Standard hardening practices for cloud environments are not performed leading to vulnerabilities.
+    measure: With the help of tools the configuration of virtual environments are
+      tested.
+    difficultyOfImplementation:
+      knowledge: 2
+      time: 2
+      resources: 1
+    usefulness: 4
+    level: 2
+    implementation:
+     -  kube-bench https://github.com/aquasecurity/kube-bench
+    samm: EH2-B
+    samm2: v-security-testing|A|1
+    iso270012017:
+      - 12.6.1
+      - 14.2.3
+      - 14.2.8
+  Do you test infrastructure components for known vulnerabilities?:
+    risk: "Infrastructure components might have vulnerabilities."
+    measure: "Test for known vulnerabilities in infrastructure components. Often, the only way to respond to known vulnerabilities in operating system packages is to accept the risk and wait for a patch. As the patch needs to be applied fast when it is available, this activity depends on 'Usage of a maximum life for images'."
+    difficultyOfImplementation:
+      knowledge: 2
+      time: 5
+      resources: 2
+    usefulness: 1
+    level: 3
+    dependsOn:
+      - Do you enforce the usage of a maximum lifetime for images?
+    implementation:
+      - Anchore.io
+      - Clair
+      - OpenSCAP
+      - Vuls https://github.com/future-architect/vuls
+    samm2: v-security-testing|A|1
+    iso270012017:
+      - 12.6.1
+      - 14.2.1
+  Do you correlate known vulnerabilities in infrastructure with new image versions?:
+    risk: "TODO."
+    measure: "TODO"
+    difficultyOfImplementation:
+      knowledge: 2
+      time: 5
+      resources: 4
+    usefulness: 1
+    level: 3
+    dependsOn:
+      - Do you enforce the usage of a maximum lifetime for images?
+    implementation:
+      - Anchore.io
+      - Clair
+      - OpenSCAP
+      - Vuls https://github.com/future-architect/vuls
+    samm2: v-security-testing|A|1
+    iso270012017:
+      - 12.6.1
+      - 14.2.1
+  Do you check for image lifetime?:
+    risk: Old container images in production indicate that patch management is not performed and therefore vulnerabilities might exists.
+    measure: Check the image age of containers in production.
+    difficultyOfImplementation:
+      knowledge: 2
+      time: 1
+      resources: 1
+    usefulness: 2
+    level: 3
+    implementation:
+    samm2: v-security-testing|A|1
+    iso270012017:
+      - 12.6.1
+      - 14.2.5
+  Do you check for known vulnerabilities?:
+    risk: Known vulnerabilities in infrastructure components like container images might get exploited.
+    measure: Check for known vulnerabilities
+    difficultyOfImplementation:
+      knowledge: 2
+      time: 1
+      resources: 1 
+    usefulness: 4
+    level: 3
+    implementation:
+      - Trivy https://github.com/aquasecurity/trivy
+      - Registries like quay, dockerhub provide (commercial) offerings, often not suiteable for distroless images
+    samm2: v-security-testing|A|2
+    iso270012017:
+      - 12.6.1
+  Do you check for new image version?:
+    risk: When a new version of an image is available, it might fixes security vulnerabilities.
+    measure: Check for new images of containers in production.
+    difficultyOfImplementation:
+      knowledge: 3
+      time: 3
+      resources: 1
+    usefulness: 2
+    level: 3
+    implementation:
+    samm2: v-security-testing|A|2
+    iso270012017:
+      - 12.6.1
+      - 14.2.5    
+      - 12.2.1
+  Do you check for malware?:
+    risk: Third party might include  malware. Ether due to the maintainer (e.g. typo squatting of an image name and using the wrong image) or by an attacker on behalf of the maintainer with stolen credentials.
+    measure: Check for malware in components (e.g. container images, VM baseline images, libaries).
+    difficultyOfImplementation:
+      knowledge: 2
+      time: 2
+      resources: 2
+    usefulness: 3
+    level: 3
+    implementation:
+    samm2: v-security-testing|A|2
+    iso270012017:
+      - 12.2.1
+...
